@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  web-checks:
+    name: Web Typecheck & Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        working-directory: ./web
+        run: bun install
+
+      - name: Typecheck
+        working-directory: ./web
+        run: bun run typecheck
+
+      - name: Build
+        working-directory: ./web
+        run: bun run build
+
+  api-tests:
+    name: API & ML Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyTorch CPU & Requirements
+        run: |
+          pip install --no-cache-dir torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install --no-cache-dir -r api/requirements.txt
+
+      - name: Run Test Suite
+        working-directory: ./api
+        env:
+          PYTHONPATH: .
+        run: pytest tests/ -v
+
+      - name: Offline Synthetic Training Smoke Test
+        working-directory: ./api
+        run: python train.py --synthetic --epochs 5 --out /tmp/global_ci.pt

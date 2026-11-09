@@ -1,0 +1,16 @@
+[package]
+name = "layt-edge"
+version = "0.1.0"
+edition = "2021"
+description = "Layt Mini-Grid Edge Agent: offline-first store-and-forward telemetry & local safety dispatch"
+
+[dependencies]
+tokio = { version = "1.38", features = ["rt-multi-thread", "macros", "time", "sync"] }
+rumqttc = "0.24"
+rusqlite = { version = "0.31", features = ["bundled"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+tempfile = "3.10"

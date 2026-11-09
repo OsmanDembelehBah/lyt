@@ -1,0 +1,22 @@
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    environment: { POSTGRES_USER: layt, POSTGRES_DB: layt, POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}" }
+    volumes: [dbdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U layt"], interval: 5s, retries: 10 }
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    volumes: ["./mosquitto:/mosquitto/config"]
+  api:
+    build: ./api
+    env_file: .env
+    depends_on: { db: { condition: service_healthy } }
+    ports: ["8000:8000"]
+    volumes:
+      - ./api:/srv
+      - ./tools:/srv/tools
+      - ./docs:/srv/docs
+      - models:/models
+    restart: unless-stopped
+volumes: { dbdata: {}, models: {} }
