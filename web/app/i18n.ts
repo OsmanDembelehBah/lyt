@@ -1,4 +1,4 @@
-// Internationalization dictionaries and helpers for Layt.
+// Internationalization dictionaries and helpers for Lyt.
 // Requirement: local-language strings must be flagged "needs native-speaker review" until reviewed.
 
 export type Locale = "en" | "fr" | "kri" | "pt" | "ha";
@@ -20,7 +20,7 @@ export const LOCALES: Record<Locale, LocaleMeta> = {
 
 export const TRANSLATIONS = {
   en: {
-    appName: "Layt",
+    appName: "Lyt",
     tagline: "A living atlas of light for off-grid West Africa",
     nav: {
       atlas: "Atlas",
@@ -76,7 +76,7 @@ export const TRANSLATIONS = {
     reviewNotice: "Notice: Translations in this language are AI-assisted drafts and require native-speaker review before operational field deployment.",
   },
   fr: {
-    appName: "Layt",
+    appName: "Lyt",
     tagline: "Un atlas vivant de lumière pour l'Afrique de l'Ouest hors réseau",
     nav: {
       atlas: "Atlas",
@@ -132,7 +132,7 @@ export const TRANSLATIONS = {
     reviewNotice: "Note : Les traductions françaises sont des versions de travail validées pour les opérateurs francophones.",
   },
   kri: {
-    appName: "Layt",
+    appName: "Lyt",
     tagline: "Di klia tin we de kip pawa na wi vilej",
     nav: {
       atlas: "Atlas",
@@ -188,7 +188,7 @@ export const TRANSLATIONS = {
     reviewNotice: "Wanin: Dis Krio tɛks nid pɔsin we sabi tɔk am fɛn fɔ chɛk am bifo yu yuz am na wok-ples.",
   },
   pt: {
-    appName: "Layt",
+    appName: "Lyt",
     tagline: "Atlas vivo de energia solar e resiliência climática",
     nav: {
       atlas: "Atlas",
@@ -244,7 +244,7 @@ export const TRANSLATIONS = {
     reviewNotice: "Aviso: Estas traduções necessitam de revisão de um falante nativo antes do uso operacional.",
   },
   ha: {
-    appName: "Layt",
+    appName: "Lyt",
     tagline: "Taswirar hasken rana da magance matsalar sauyin yanayi",
     nav: {
       atlas: "Taswira",

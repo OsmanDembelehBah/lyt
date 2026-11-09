@@ -329,7 +329,7 @@ export default function PlacePassportPage() {
             </button>
 
             <div className="sms-shortcode-tag text-xs font-mono px-3 py-1.5 rounded-full bg-[var(--lagoon)] text-[var(--sand)] border border-[var(--earth-border)]">
-              SMS Code: <b>LAYT {currentHub.id.toUpperCase()}</b> to <b>384</b>
+              SMS Code: <b>LYT {currentHub.id.toUpperCase()}</b> to <b>384</b>
             </div>
           </div>
 
@@ -637,14 +637,14 @@ export default function PlacePassportPage() {
                 <rect x="75" y="105" width="8" height="8" fill="#EFE3CB" />
                 <rect x="100" y="100" width="16" height="16" fill="#FFB347" />
               </svg>
-              <span className="text-xs font-mono text-[var(--sand-bright)]">https://layt.africa/p/{currentHub.id}</span>
+              <span className="text-xs font-mono text-[var(--sand-bright)]">https://lyt.africa/p/{currentHub.id}</span>
               <span className="text-[11px] text-[var(--sand-dim)] mt-1">Scan with any smartphone camera</span>
             </div>
 
             <div className="space-y-2 mb-4">
               <div className="text-xs text-[var(--sand-dim)]">SMS Code for 2G / Feature Phones:</div>
               <div className="p-3 rounded-lg bg-[var(--lagoon)] border border-[var(--earth-border)] font-mono text-xs flex items-center justify-between">
-                <span>Text <b>LAYT {currentHub.id.toUpperCase()}</b> to <b>384</b></span>
+                <span>Text <b>LYT {currentHub.id.toUpperCase()}</b> to <b>384</b></span>
                 <span className="text-[10px] text-[var(--sun)]">Free</span>
               </div>
             </div>
@@ -679,7 +679,7 @@ export default function PlacePassportPage() {
             </div>
 
             <p className="text-xs text-[var(--sand-dim)] mb-4">
-              Layt maintains an open, tamper-evident record. You may dispute <b>{disputeModalEvent.label}</b> ({disputeModalEvent.date}) by submitting ground truth evidence.
+              Lyt maintains an open, tamper-evident record. You may dispute <b>{disputeModalEvent.label}</b> ({disputeModalEvent.date}) by submitting ground truth evidence.
             </p>
 
             <div className="space-y-3 mb-4 text-xs">

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Layt Design System: "Homebrew Terminal & Living Atlas of Light"
+   Lyt Design System: "Homebrew Terminal & Living Atlas of Light"
    Homebrew Aesthetic: Deep Obsidian Carbon (#0B0D13), Terminal Slate (#141824),
    Crisp Amber Brew Gold (#F59E0B), Terminal Emerald (#10B981), Electric Cyan (#38BDF8)
    High-Contrast Typography: Pure White (#FFFFFF) & Cool Slate (#94A3B8)
@@ -14,7 +14,7 @@
   --rain: #7FB8FF;              /* Rain, flood, satellite rain, "satellite-verified" badge */
   --heat: #C8472E;              /* Heat stress, danger */
   --dust: #D2A35A;              /* Harmattan dust, cleaning alerts, "community-reported" accents */
-  --mist: #6FD0C4;              /* Battery water, live status, trust, Ask Layt, "station-verified" badge */
+  --mist: #6FD0C4;              /* Battery water, live status, trust, Ask Lyt, "station-verified" badge */
 
   /* Homebrew Terminal Precision & Elevated Canvas */
   --earth-base: var(--lagoon);        /* Page background (#0C3836) */

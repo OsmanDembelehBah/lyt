@@ -1,8 +1,8 @@
 [package]
-name = "layt-edge"
+name = "lyt-edge"
 version = "0.1.0"
 edition = "2021"
-description = "Layt Mini-Grid Edge Agent: offline-first store-and-forward telemetry & local safety dispatch"
+description = "Lyt Mini-Grid Edge Agent: offline-first store-and-forward telemetry & local safety dispatch"
 
 [dependencies]
 tokio = { version = "1.38", features = ["rt-multi-thread", "macros", "time", "sync"] }

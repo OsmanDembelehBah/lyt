@@ -1,4 +1,4 @@
-"""Layt API: HTTP + MQTT telemetry ingest -> TimescaleDB; live NWP weather; AI forecast + dispatch; WebSocket push."""
+"""Lyt API: HTTP + MQTT telemetry ingest -> TimescaleDB; live NWP weather; AI forecast + dispatch; WebSocket push."""
 import asyncio, hashlib, hmac, json, logging, os, time
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
@@ -10,7 +10,7 @@ import physics, weather
 try: import model as M
 except ImportError: M = None                      # no torch -> physics baseline mode, still serves
 
-log = logging.getLogger("layt"); logging.basicConfig(level=logging.INFO)
+log = logging.getLogger("lyt"); logging.basicConfig(level=logging.INFO)
 sha = lambda k: hashlib.sha256(k.encode()).hexdigest()
 ok = lambda k, h: hmac.compare_digest(sha(k or ""), h)
 MODEL_DIR = os.getenv("MODEL_DIR", "/models")
@@ -42,11 +42,11 @@ async def push(sid, msg):
         except Exception: app.state.subs[sid].discard(w)
 
 async def mqtt_loop(app):
-    """Devices publish JSON to layt/<site>/telemetry: {"key":"...","pv_kw":3.2,"load_kw":1.1,"soc":0.62,"ts":<epoch s, optional>}"""
+    """Devices publish JSON to lyt/<site>/telemetry: {"key":"...","pv_kw":3.2,"load_kw":1.1,"soc":0.62,"ts":<epoch s, optional>}"""
     while True:
         try:
             async with aiomqtt.Client(os.getenv("MQTT_HOST", "mosquitto"), username=os.getenv("MQTT_USER"), password=os.getenv("MQTT_PASS")) as c:
-                await c.subscribe("layt/+/telemetry")
+                await c.subscribe("lyt/+/telemetry")
                 async for m in c.messages:
                     try:
                         sid = str(m.topic).split("/")[1]; d = json.loads(m.payload); s = await site(sid)
@@ -118,7 +118,7 @@ async def lifespan(app):
     for t in ts: t.cancel()
     await app.state.pool.close()
 
-app = FastAPI(title="Layt", lifespan=lifespan)
+app = FastAPI(title="Lyt", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000").split(","), allow_methods=["*"], allow_headers=["*"])
 
 @app.get("/health")

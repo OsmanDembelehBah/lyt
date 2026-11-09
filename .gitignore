@@ -25,3 +25,10 @@ dist/
 
 # Mosquitto / runtime data
 mosquitto/passwd.bak
+
+# Rust
+edge/target/
+target/
+
+# TypeScript build info
+*.tsbuildinfo

@@ -96,7 +96,7 @@ export default function ConsolePage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `layt_operator_audit_${Date.now()}.csv`);
+    link.setAttribute("download", `lyt_operator_audit_${Date.now()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -245,7 +245,7 @@ export default function ConsolePage() {
               opacity="0.6"
             />
 
-            {/* Layt MPC Optimized Retention Curve */}
+            {/* Lyt MPC Optimized Retention Curve */}
             <path
               d="M 60 25 Q 240 45 470 78"
               fill="none"

@@ -1,5 +1,5 @@
 {
-  "name": "layt-web",
+  "name": "lyt-web",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -1,6 +1,6 @@
-# Layt: Scientific Methodology & Mathematical Formulations
+# Lyt: Scientific Methodology & Mathematical Formulations
 
-This document provides complete mathematical formulations and engineering principles for all analytical modules in Layt.
+This document provides complete mathematical formulations and engineering principles for all analytical modules in Lyt.
 
 ---
 

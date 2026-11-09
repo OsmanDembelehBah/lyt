@@ -1,4 +1,4 @@
-# Layt: Architectural & Engineering Decisions Log (ADR)
+# Lyt: Architectural & Engineering Decisions Log (ADR)
 
 This document records key technical, product, and AI decisions, their rationale, and alternatives considered.
 
@@ -112,7 +112,7 @@ This document records key technical, product, and AI decisions, their rationale,
 
 ## ADR 014: Standalone Rust Edge Agent with Store-and-Forward SQLite Buffer
 - **Date**: 2026-11-07
-- **Decision**: Build `edge/` (`layt-edge`) in Rust using Tokio, Rumqttc, and bundled SQLite. Telemetry is committed to local SQLite before transmission; during network outages, readings queue safely and drain chronologically upon reconnect. Local rule-based physics dispatch operates autonomously with a hard 3-hour healthcare reserve constraint.
+- **Decision**: Build `edge/` (`lyt-edge`) in Rust using Tokio, Rumqttc, and bundled SQLite. Telemetry is committed to local SQLite before transmission; during network outages, readings queue safely and drain chronologically upon reconnect. Local rule-based physics dispatch operates autonomously with a hard 3-hour healthcare reserve constraint.
 - **Rationale**: Meets the mission brief requirement for Raspberry Pi gateways surviving 30+ minute cellular dropouts without telemetry loss.
 
 
@@ -155,12 +155,12 @@ This document records key technical, product, and AI decisions, their rationale,
 
 ## ADR 018: In-Built Global Terminal AI Copilot Widget
 - **Date**: 2026-11-07
-- **Decision**: Integrate a persistent, global in-built assistant (`InBuiltAssistant.tsx`) mounted in `RootLayout`. Includes a floating Homebrew prompt pill (`>_layt@copilot_`), keyboard shortcut `⌘K` / `Ctrl+K`, quick-action recipe chips (Solar Outlook, Clinic Cold Chain, Soiling Check, MPC Dispatch), and live connection to `/api/agent`.
+- **Decision**: Integrate a persistent, global in-built assistant (`InBuiltAssistant.tsx`) mounted in `RootLayout`. Includes a floating Homebrew prompt pill (`>_lyt@copilot_`), keyboard shortcut `⌘K` / `Ctrl+K`, quick-action recipe chips (Solar Outlook, Clinic Cold Chain, Soiling Check, MPC Dispatch), and live connection to `/api/agent`.
 - **Rationale**: Empowers field operators and planners to inspect mini-grid status, run dispatch, or verify clinic cold-chain safety from any page without navigating away.
 
 ---
 
 ## ADR 019: Rust Edge Agent Clippy & Dead Code Remediation
 - **Date**: 2026-11-07
-- **Decision**: Cleaned up all rustc and clippy warnings in `edge/` (`layt-edge`). Added `#[cfg(test)]` to in-memory store initialization, annotated store-and-forward batch draining routines with `#[allow(dead_code)]` for asynchronous queue integration, and converted redundant `format!` string allocations to static string slices.
+- **Decision**: Cleaned up all rustc and clippy warnings in `edge/` (`lyt-edge`). Added `#[cfg(test)]` to in-memory store initialization, annotated store-and-forward batch draining routines with `#[allow(dead_code)]` for asynchronous queue integration, and converted redundant `format!` string allocations to static string slices.
 - **Rationale**: Enforces zero compiler warnings and maintains strict production safety across edge binaries.

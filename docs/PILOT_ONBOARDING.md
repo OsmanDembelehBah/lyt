@@ -1,6 +1,6 @@
-# Layt: Mini-Grid Operator Onboarding & Edge Gateway Installation Guide
+# Lyt: Mini-Grid Operator Onboarding & Edge Gateway Installation Guide
 
-This guide describes how to deploy Layt on an existing off-grid mini-grid site within 60 minutes.
+This guide describes how to deploy Lyt on an existing off-grid mini-grid site within 60 minutes.
 
 ---
 
@@ -8,7 +8,7 @@ This guide describes how to deploy Layt on an existing off-grid mini-grid site w
 - **Mini-Grid Inverter / Data Logger**: Modbus RTU / TCP (Schneider Conext, Victron Venus GX, SMA Sunny Island, or Deye/Sunsynk).
 - **Edge Gateway Hardware**: Raspberry Pi 4 / Compute Module 4 (or any Linux ARM/x86 gateway with $\ge 1\text{ GB RAM}$).
 - **Connectivity**: 2G/3G/4G cellular modem or local Wi-Fi link.
-- **Access Credentials**: Ingestion API Key and Read Key provisioned from Layt Admin.
+- **Access Credentials**: Ingestion API Key and Read Key provisioned from Lyt Admin.
 
 ---
 
@@ -17,22 +17,22 @@ This guide describes how to deploy Layt on an existing off-grid mini-grid site w
 ### Step 1: Install the Standalone Rust Edge Agent
 ```bash
 # On the Raspberry Pi gateway
-curl -sSL https://get.layt.energy/install.sh | bash
+curl -sSL https://get.lyt.energy/install.sh | bash
 
 # Or build from source
-git clone https://github.com/layt-energy/layt.git
-cd layt/edge
+git clone https://github.com/lyt-energy/lyt.git
+cd lyt/edge
 cargo build --release
-sudo cp target/release/layt-edge /usr/local/bin/
+sudo cp target/release/lyt-edge /usr/local/bin/
 ```
 
 ### Step 2: Configure Site Environment
-Create `/etc/layt/edge.env`:
+Create `/etc/lyt/edge.env`:
 ```env
 SITE_ID=kabala-01
 SITE_NAME="Kabala Rural Health Hub"
-EDGE_DB_PATH=/var/lib/layt/edge_buffer.db
-MQTT_HOST=cloud.layt.energy
+EDGE_DB_PATH=/var/lib/lyt/edge_buffer.db
+MQTT_HOST=cloud.lyt.energy
 MQTT_PORT=8883
 MQTT_USER=kabala-01
 MQTT_PASS=xxxxxxxxxxxxxxxxxxxxxxxx
@@ -46,14 +46,14 @@ KWP=20.0
 ### Step 3: Enable the Gateway Systemd Service
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now layt-edge
-sudo systemctl status layt-edge
+sudo systemctl enable --now lyt-edge
+sudo systemctl status lyt-edge
 ```
 
 ---
 
 ## 3. Telemetry Verification & Ingest Schema
-The gateway publishes telemetry every 60 seconds to `layt/<site_id>/telemetry`:
+The gateway publishes telemetry every 60 seconds to `lyt/<site_id>/telemetry`:
 ```json
 {
   "key": "sha256_ingest_key",

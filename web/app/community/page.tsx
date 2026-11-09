@@ -50,17 +50,17 @@ export default function CommunityPage() {
   const [smsChat, setSmsChat] = useState<Array<{ sender: "bot" | "user"; text: string; time: string }>>([
     {
       sender: "bot",
-      text: "LAYT ALERT [Kambia Mini-Grid]: Power tomorrow is GOOD. Sun is strong. Water pump & mill window: 10:00 to 15:00. Clinic fridges fully protected. Reply 1 for details, 2 for hours, 3 for clinic reserve.",
+      text: "LYT ALERT [Kambia Mini-Grid]: Power tomorrow is GOOD. Sun is strong. Water pump & mill window: 10:00 to 15:00. Clinic fridges fully protected. Reply 1 for details, 2 for hours, 3 for clinic reserve.",
       time: "11:40 AM",
     },
   ]);
   const [smsInputText, setSmsInputText] = useState("");
 
   const smsTexts: Record<string, string> = {
-    en: "LAYT ALERT [Kambia Mini-Grid]: Power tomorrow is GOOD. Sun is strong. Water pump & mill window: 10:00 to 15:00. Clinic fridges fully protected. Questions? Reply 1.",
-    fr: "ALERTE LAYT [Mini-Réseau]: L'électricité demain sera BONNE. Ensoleillement fort. Pompes et moulins : 10h-15h. Dispensaire protégé à 100%. Répondez 1 pour plus d'infos.",
-    kri: "LAYT ALAT: Pawa tɔmɔro go bɛtɛ! Sɔn go kɔmɔt fayn. Rɔn yu wata pɔmp ɛn mil frɔm 10:00 te 15:00. Klinik batri gɛt pawa fɔ ful nɛt. Tɛp 1 fɔ no mɔ.",
-    ha: "LAYT SANARWA: Hasken wuta gobe zai yi kyau sosai. Za a iya kunna injin ban ruwa daga karfe 10:00 zuwa 15:00. Asibiti yana da tabbacin wuta. Latsa 1 domin karin bayani.",
+    en: "LYT ALERT [Kambia Mini-Grid]: Power tomorrow is GOOD. Sun is strong. Water pump & mill window: 10:00 to 15:00. Clinic fridges fully protected. Questions? Reply 1.",
+    fr: "ALERTE LYT [Mini-Réseau]: L'électricité demain sera BONNE. Ensoleillement fort. Pompes et moulins : 10h-15h. Dispensaire protégé à 100%. Répondez 1 pour plus d'infos.",
+    kri: "LYT ALAT: Pawa tɔmɔro go bɛtɛ! Sɔn go kɔmɔt fayn. Rɔn yu wata pɔmp ɛn mil frɔm 10:00 te 15:00. Klinik batri gɛt pawa fɔ ful nɛt. Tɛp 1 fɔ no mɔ.",
+    ha: "LYT SANARWA: Hasken wuta gobe zai yi kyau sosai. Za a iya kunna injin ban ruwa daga karfe 10:00 zuwa 15:00. Asibiti yana da tabbacin wuta. Latsa 1 domin karin bayani.",
   };
 
   // WhatsApp Interactive Chat History
@@ -81,7 +81,7 @@ export default function CommunityPage() {
       tag: "SMPP-BIND",
       tagType: "core",
       category: "core",
-      content: "Transceiver bound to smpp.africastalking.com:2775 (SystemID: layt_sl_gw, system_type: mini-grid)",
+      content: "Transceiver bound to smpp.africastalking.com:2775 (SystemID: lyt_sl_gw, system_type: mini-grid)",
     },
     {
       id: "log-2",
@@ -231,15 +231,15 @@ export default function CommunityPage() {
       `deliver_sm (src='+23276123456', dst='3845', esm=0x00, msg="${userMsg}")`
     );
 
-    let botReply = "LAYT: Thank you. Your message has been logged for the mini-grid duty technician.";
+    let botReply = "LYT: Thank you. Your message has been logged for the mini-grid duty technician.";
     if (userMsg === "1" || userMsg.toUpperCase().includes("STATUS") || userMsg.toUpperCase().includes("POWER") || userMsg.toUpperCase().includes("PAWA")) {
-      botReply = "LAYT: Power tomorrow: GOOD. Solar expected at 5.4 kWh/kWp. Clinic vaccine fridges guaranteed 24h. No diesel planned.";
+      botReply = "LYT: Power tomorrow: GOOD. Solar expected at 5.4 kWh/kWp. Clinic vaccine fridges guaranteed 24h. No diesel planned.";
     } else if (userMsg === "2" || userMsg.toUpperCase().includes("HOURS") || userMsg.toUpperCase().includes("TIME") || userMsg.toUpperCase().includes("MIL")) {
-      botReply = "LAYT: Recommended productive load hours: 10:00 to 15:00 for grain mills and irrigation pumps during peak sun.";
+      botReply = "LYT: Recommended productive load hours: 10:00 to 15:00 for grain mills and irrigation pumps during peak sun.";
     } else if (userMsg === "3" || userMsg.toUpperCase().includes("CLINIC") || userMsg.toUpperCase().includes("FRIDGE")) {
-      botReply = "LAYT: Clinic vaccine cold chain buffer is at 100%. Hard reserve of 3+ hours continuously enforced by MPC.";
+      botReply = "LYT: Clinic vaccine cold chain buffer is at 100%. Hard reserve of 3+ hours continuously enforced by MPC.";
     } else if (userMsg === "4" || userMsg.toUpperCase().includes("HELP") || userMsg.toUpperCase().includes("FAULT")) {
-      botReply = "LAYT: Outage ticket created. Field technician assigned to Kambia sector 2. Emergency phone: +232 76 999111.";
+      botReply = "LYT: Outage ticket created. Field technician assigned to Kambia sector 2. Emergency phone: +232 76 999111.";
     }
 
     setTimeout(() => {
@@ -277,13 +277,13 @@ export default function CommunityPage() {
       `HTTP/2 POST /webhooks/whatsapp | from="+23276123456" | text="${userMsg}"`
     );
 
-    let reply = "LAYT MINI-GRID: Thank you for your inquiry. Our automated dispatcher is monitoring the Kambia feeder cell.";
+    let reply = "LYT MINI-GRID: Thank you for your inquiry. Our automated dispatcher is monitoring the Kambia feeder cell.";
     if (userMsg.includes("1") || userMsg.toUpperCase().includes("POWER") || userMsg.toUpperCase().includes("TOMORROW")) {
-      reply = "LAYT: Power tomorrow is rated ABUNDANT. Solar forecast: 5.4 kWh/kWp. Battery reserve: 88%. Clinic vaccine freezers guaranteed 24h.";
+      reply = "LYT: Power tomorrow is rated ABUNDANT. Solar forecast: 5.4 kWh/kWp. Battery reserve: 88%. Clinic vaccine freezers guaranteed 24h.";
     } else if (userMsg.includes("2") || userMsg.toUpperCase().includes("MILL") || userMsg.toUpperCase().includes("PUMP")) {
-      reply = "LAYT: Peak solar window is 10:00 to 15:00. Grain mills, cassava grinding, and community irrigation pumps are scheduled to run at subsidized tariffs.";
+      reply = "LYT: Peak solar window is 10:00 to 15:00. Grain mills, cassava grinding, and community irrigation pumps are scheduled to run at subsidized tariffs.";
     } else if (userMsg.includes("3") || userMsg.toUpperCase().includes("CLINIC") || userMsg.toUpperCase().includes("BUFFER")) {
-      reply = "LAYT: Clinic vaccine cold chain status is NOMINAL at 3.9°C. Hard reserve of 3.4 hours is locked into battery storage under p10 pessimistic sky.";
+      reply = "LYT: Clinic vaccine cold chain status is NOMINAL at 3.9°C. Hard reserve of 3.4 hours is locked into battery storage under p10 pessimistic sky.";
     }
 
     setTimeout(() => {
@@ -356,7 +356,7 @@ export default function CommunityPage() {
         "broadcast",
         "Bulk submit_sm broadcast initiated (420 SMS packets queued to Orange SL SMSC)."
       );
-      const alertMsg = "⚠ LAYT CRITICAL ALERT: Heavy convective squall incoming (15:30-18:00). Clinic reserve locked. Productive loads pause now.";
+      const alertMsg = "⚠ LYT CRITICAL ALERT: Heavy convective squall incoming (15:30-18:00). Clinic reserve locked. Productive loads pause now.";
       setSmsChat((prev) => [...prev, { sender: "bot", text: alertMsg, time }]);
       setWhatsappChat((prev) => [...prev, { sender: "bot", text: alertMsg, time }]);
     } else if (type === "surplus") {
@@ -372,7 +372,7 @@ export default function CommunityPage() {
         "broadcast",
         "Bulk submit_sm broadcast sent to 86 agro-processing and irrigation subscribers."
       );
-      const surplusMsg = "⚡ LAYT SURPLUS: Battery full & strong sun. Grain mills and cassava processing open until 15:30 at subsidized rate.";
+      const surplusMsg = "⚡ LYT SURPLUS: Battery full & strong sun. Grain mills and cassava processing open until 15:30 at subsidized rate.";
       setSmsChat((prev) => [...prev, { sender: "bot", text: surplusMsg, time }]);
       setWhatsappChat((prev) => [...prev, { sender: "bot", text: surplusMsg, time }]);
     } else {
@@ -388,7 +388,7 @@ export default function CommunityPage() {
         "broadcast",
         "SMS dispatched to Head Nurse (+23276999111): Vaccine buffer safe. 3.4h hard reserve locked."
       );
-      const clinicMsg = "🏥 LAYT CLINIC: Vaccine cold chain status NORMAL (3.9°C). 3.4h continuous reserve locked under p10 pessimistic sun.";
+      const clinicMsg = "🏥 LYT CLINIC: Vaccine cold chain status NORMAL (3.9°C). 3.4h continuous reserve locked under p10 pessimistic sun.";
       setSmsChat((prev) => [...prev, { sender: "bot", text: clinicMsg, time }]);
       setWhatsappChat((prev) => [...prev, { sender: "bot", text: clinicMsg, time }]);
     }
@@ -540,7 +540,7 @@ export default function CommunityPage() {
                   <div className="sms-carrier-card">
                     <span className="font-semibold text-[#FFFFFF] flex items-center gap-1.5 text-xs">
                       <ShieldCheckIcon size={14} className="text-[#10B981]" />
-                      <span>LAYT-ALERT (3845)</span>
+                      <span>LYT-ALERT (3845)</span>
                     </span>
                     <span className="text-[10px] font-mono text-[#F59E0B] bg-[#141824] px-2 py-0.5 rounded border border-[#283347]">
                       SMPP v3.4 · GSM-7
@@ -555,7 +555,7 @@ export default function CommunityPage() {
                         className={`sms-bubble ${msg.sender === "bot" ? "bot" : "user"}`}
                       >
                         {msg.sender === "bot" && (
-                          <div className="sms-bubble-sender">LAYT-ALERT [Kambia]</div>
+                          <div className="sms-bubble-sender">LYT-ALERT [Kambia]</div>
                         )}
                         <div>{msg.text}</div>
                         <div className="sms-bubble-meta">
@@ -621,13 +621,13 @@ export default function CommunityPage() {
                   <div className="ussd-screen-card">
                     <div>
                       <div className="ussd-header-row">
-                        <span className="text-[#F59E0B] font-bold">*384*529# (LAYT)</span>
+                        <span className="text-[#F59E0B] font-bold">*384*529# (LYT)</span>
                         <span className="text-[#94A3B8]">Orange SL Flash</span>
                       </div>
 
                       {ussdScreen === "root" && (
                         <div className="ussd-menu-body">
-                          <p className="ussd-title">LAYT MINI-GRID (Kambia)</p>
+                          <p className="ussd-title">LYT MINI-GRID (Kambia)</p>
                           <div className="ussd-item"><span className="ussd-num">1.</span> Power Tomorrow Outlook</div>
                           <div className="ussd-item"><span className="ussd-num">2.</span> Clinic Vaccine Cold Chain</div>
                           <div className="ussd-item"><span className="ussd-num">3.</span> Productive Window (Mills &amp; Pumps)</div>
@@ -737,7 +737,7 @@ export default function CommunityPage() {
                       <div className="whatsapp-avatar">L</div>
                       <div>
                         <div className="whatsapp-title">
-                          <span>Layt Mini-Grid</span>
+                          <span>Lyt Mini-Grid</span>
                           <CheckCircleIcon size={13} className="text-[#10B981]" />
                         </div>
                         <div className="whatsapp-subtitle">Official Business Account · Online</div>
@@ -749,7 +749,7 @@ export default function CommunityPage() {
                   {/* WhatsApp Chat Messages */}
                   <div className="whatsapp-chat-body">
                     <div className="whatsapp-encryption-notice">
-                      🔒 Messages are end-to-end encrypted. Layt AI Gateway.
+                      🔒 Messages are end-to-end encrypted. Lyt AI Gateway.
                     </div>
 
                     {whatsappChat.map((msg, i) => (
@@ -924,7 +924,7 @@ export default function CommunityPage() {
                   <span className="dot-green" />
                 </div>
                 <span className="terminal-title-text font-mono">
-                  layt@edge-gateway: /var/log/telecom/smpp.log · 115200 baud
+                  lyt@edge-gateway: /var/log/telecom/smpp.log · 115200 baud
                 </span>
               </div>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">

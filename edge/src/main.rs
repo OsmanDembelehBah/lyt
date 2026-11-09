@@ -9,7 +9,7 @@ use types::{Reading, SiteConfig};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("=== Layt Edge Agent v0.1.0 (Raspberry Pi Gateway) ===");
+    println!("=== Lyt Edge Agent v0.1.0 (Raspberry Pi Gateway) ===");
 
     let db_path = std::env::var("EDGE_DB_PATH").unwrap_or_else(|_| "edge_buffer.db".to_string());
     let store = Store::open(&db_path)?;

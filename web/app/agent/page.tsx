@@ -46,7 +46,7 @@ const PRESET_CODING_TEMPLATES: Record<
     description: "Enforces 20% emergency reserve for clinic cold chains and routes surplus to mills.",
     defaultPrompt: "Generate an adaptive battery dispatch algorithm in Python that reserves 20% SoC for hospital vaccine cold chain and dispatches agricultural agro-processing during midday solar peak.",
     code: `"""
-Layt Autonomous Microgrid Battery Dispatch Engine
+Lyt Autonomous Microgrid Battery Dispatch Engine
 Complies with ECOWAS Mini-Grid Technical Standards (EREP 2030)
 """
 from dataclasses import dataclass
@@ -110,18 +110,18 @@ print(f"==> Verdict: {verdict['verdict']}")`,
     description: "Cellular-fault-tolerant MQTT telemetry publisher with offline flash buffering.",
     defaultPrompt: "Write an ESP32 MicroPython MQTT telemetry publisher with exponential backoff for weak cellular 2G/GPRS towers in rural mini-grids.",
     code: `"""
-Layt Edge Gateway Telemetry Daemon for ESP32 (MicroPython)
+Lyt Edge Gateway Telemetry Daemon for ESP32 (MicroPython)
 Ingests RS485 Modbus telemetry from Victron/Growatt inverters
-and publishes to Layt regional TimescaleDB broker over MQTT.
+and publishes to Lyt regional TimescaleDB broker over MQTT.
 """
 import time
 import ujson
 from umqtt.simple import MQTTClient
 
-BROKER_HOST = "broker.layt.africa"
+BROKER_HOST = "broker.lyt.africa"
 SITE_ID = "freetown_clinic_01"
-INGEST_KEY = "layt_sec_token_99a8b"
-TOPIC = f"layt/{SITE_ID}/telemetry"
+INGEST_KEY = "lyt_sec_token_99a8b"
+TOPIC = f"lyt/{SITE_ID}/telemetry"
 
 def read_modbus_registers():
     # Simulates RS485 Modbus inverter holding registers (Victron / Deye / Growatt)
@@ -135,7 +135,7 @@ def read_modbus_registers():
     }
 
 def start_gateway():
-    print(f"==> Connecting to Layt MQTT Broker: {BROKER_HOST}...")
+    print(f"==> Connecting to Lyt MQTT Broker: {BROKER_HOST}...")
     client = MQTTClient(client_id=f"esp32_{SITE_ID}", server=BROKER_HOST, port=1883)
     client.connect()
     print("==> Telemetry Gateway Active. Publishing telemetry every 15s...")
@@ -159,7 +159,7 @@ start_gateway()`,
     description: "Compares live measured PV against clear-sky irradiance physics to trigger cleaning alerts.",
     defaultPrompt: "Build a dynamic soiling detection algorithm that detects Harmattan dust accumulation and calculates cleaning ROI.",
     code: `"""
-Layt Dynamic Harmattan Dust Soiling Algorithm
+Lyt Dynamic Harmattan Dust Soiling Algorithm
 Monitors PV Performance Ratio derating vs. Clear-Sky physical curves
 """
 
@@ -205,7 +205,7 @@ print(f"==> Directive: {result['recommendation']}")`,
     description: "Automated load-shedding hierarchy reserving power for rural maternity clinics and cold stores.",
     defaultPrompt: "Create a critical load protection controller that sheds non-essential village circuits when solar battery reserves drop below 25%.",
     code: `"""
-Layt Rural Health Clinic & Vaccine Cold-Chain Safeguard Controller
+Lyt Rural Health Clinic & Vaccine Cold-Chain Safeguard Controller
 Prioritizes Level 1 (Vaccine Fridges, Maternal Lighting) over Level 2/3 (Milling, Domestic)
 """
 
@@ -249,14 +249,14 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: "msg-0",
     sender: "agent",
-    text: `Welcome to **Layt AI Agent & Live Coding Studio**! ⚡
+    text: `Welcome to **Lyt AI Agent & Live Coding Studio**! ⚡
 
 I am your autonomous clean energy copilot for West Africa. I reason about live meteorological data (Open-Meteo & Copernicus dust), manage microgrid battery dispatch, protect rural clinic cold chains, and write production-grade firmware for edge inverters.
 
 **How can I help you optimize your clean energy operations today?**`,
     timestamp: "Just now",
     thoughtTrace: [
-      "Initialized Layt Autonomous Grid Engine v2.4.",
+      "Initialized Lyt Autonomous Grid Engine v2.4.",
       "Calibrated regional weather model across 25 West Africa hubs.",
       "Loaded ECOWAS Renewable Energy Policy (EREP) compliance rules.",
     ],
@@ -294,7 +294,7 @@ export default function AgentPage() {
   // Load API key from localStorage on mount
   useEffect(() => {
     try {
-      const savedKey = localStorage.getItem("layt_gemini_api_key");
+      const savedKey = localStorage.getItem("lyt_gemini_api_key");
       if (savedKey) {
         setApiKey(savedKey);
       }
@@ -304,14 +304,14 @@ export default function AgentPage() {
   const saveApiKey = (newKey: string) => {
     setApiKey(newKey);
     try {
-      localStorage.setItem("layt_gemini_api_key", newKey);
+      localStorage.setItem("lyt_gemini_api_key", newKey);
     } catch (_) {}
   };
 
   const clearApiKey = () => {
     setApiKey("");
     try {
-      localStorage.removeItem("layt_gemini_api_key");
+      localStorage.removeItem("lyt_gemini_api_key");
     } catch (_) {}
     setKeyPingStatus(null);
   };
@@ -411,8 +411,8 @@ export default function AgentPage() {
   const handleRunSimulation = () => {
     setIsSimulating(true);
     setConsoleOutput(
-      `$ layt-agent execute --firmware runtime-v2.4 --target esp32\n` +
-      `==> Booting Layt Edge MicroPython / Python Runtime...\n` +
+      `$ lyt-agent execute --firmware runtime-v2.4 --target esp32\n` +
+      `==> Booting Lyt Edge MicroPython / Python Runtime...\n` +
       `==> Ingesting live microgrid sensors...\n`
     );
 
@@ -455,7 +455,7 @@ export default function AgentPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `layt_${activeTemplateKey}_${Date.now()}.py`;
+    a.download = `lyt_${activeTemplateKey}_${Date.now()}.py`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -477,7 +477,7 @@ export default function AgentPage() {
         <div className="agent-title-row">
           <div>
             <h1 className="regional-headline mb-2">
-              Layt AI Agent & Live Coding Studio
+              Lyt AI Agent & Live Coding Studio
             </h1>
             <p className="agent-subhead">
               Autonomous clean energy intelligence, live dispatch reasoning, and edge IoT firmware generator for West Africa mini-grids.
@@ -493,15 +493,15 @@ export default function AgentPage() {
         <div className="brew-cli-box my-4">
           <div className="brew-cli-content">
             <span className="brew-cli-prompt">$</span>
-            <span className="brew-cli-cmd">brew tap layt/energy && brew install layt-agent</span>
+            <span className="brew-cli-cmd">brew tap lyt/energy && brew install lyt-agent</span>
             <span className="text-[#64748B] font-mono text-xs hidden md:inline">
-              # or: /bin/bash -c "$(curl -fsSL https://layt.africa/install.sh)"
+              # or: /bin/bash -c "$(curl -fsSL https://lyt.africa/install.sh)"
             </span>
           </div>
           <button
             type="button"
             className={`brew-copy-btn ${copiedCli ? "copied" : ""}`}
-            onClick={() => copyToClipboard("brew tap layt/energy && brew install layt-agent", true)}
+            onClick={() => copyToClipboard("brew tap lyt/energy && brew install lyt-agent", true)}
             title="Copy command to clipboard"
           >
             {copiedCli ? (
@@ -711,7 +711,7 @@ export default function AgentPage() {
                 <span className="mac-dot green" />
               </div>
               <span className="terminal-title">
-                layt-copilot --live --session active --model {selectedModel}
+                lyt-copilot --live --session active --model {selectedModel}
               </span>
               <span className="text-xs text-[#10B981] font-mono">ONLINE</span>
             </div>
@@ -869,7 +869,7 @@ export default function AgentPage() {
                 <span className="mac-dot green" />
               </div>
               <span className="terminal-title">
-                layt-code-studio: {activeTemplateKey}.py (Python / MicroPython 3.11)
+                lyt-code-studio: {activeTemplateKey}.py (Python / MicroPython 3.11)
               </span>
               <div className="flex items-center gap-2">
                 <button

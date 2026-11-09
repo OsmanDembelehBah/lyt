@@ -1,4 +1,4 @@
-"""Comprehensive backtesting and benchmark evaluation engine for Layt.
+"""Comprehensive backtesting and benchmark evaluation engine for Lyt.
 Evaluates the PyTorch probabilistic forecaster against:
 1. Persistence baseline (yesterday's profile repeated)
 2. Pure physics baseline (GHI + NOCT temperature model)
@@ -55,7 +55,7 @@ def pinball_loss_np(q_arr, y_arr, tau_list=(0.1, 0.5, 0.9)):
     return float(np.mean(losses)), [float(x) for x in losses]
 
 def run_backtest(years=1, synthetic=False, lat=8.48, lon=-13.23, epochs=6):
-    print("=== [Layt AI] Initializing Chronological Backtesting Pipeline ===")
+    print("=== [Lyt AI] Initializing Chronological Backtesting Pipeline ===")
     if synthetic:
         print("Data mode: Synthetic 365-day weather generation")
         wx = synth_weather(365)
@@ -126,7 +126,7 @@ def run_backtest(years=1, synthetic=False, lat=8.48, lon=-13.23, epochs=6):
         "test_samples": len(P_test),
         "target_conformal_coverage": 0.80,
         "models": {
-            "layt_probabilistic_ai": {
+            "lyt_probabilistic_ai": {
                 "pinball_loss": round(model_pinball, 4),
                 "pinball_p10": round(model_q_losses[0], 4),
                 "pinball_p50": round(model_q_losses[1], 4),
@@ -147,7 +147,7 @@ def run_backtest(years=1, synthetic=False, lat=8.48, lon=-13.23, epochs=6):
     }
 
     print("\n=================== BENCHMARK RESULTS ===================")
-    print(f"Layt Probabilistic AI: Pinball Loss = {model_pinball:.4f} | Empirical Coverage = {model_cov:.3f} (Target: 0.800)")
+    print(f"Lyt Probabilistic AI: Pinball Loss = {model_pinball:.4f} | Empirical Coverage = {model_cov:.3f} (Target: 0.800)")
     print(f"Persistence Baseline:   Pinball Loss = {persist_pinball:.4f} | Coverage = {persist_cov:.3f}")
     print(f"Pure Physics Baseline: Pinball Loss = {phys_pinball:.4f} | Coverage = {phys_cov:.3f}")
     print(f"Skill Score vs Persistence: {skill_vs_persist:.3f} (+{skill_vs_persist*100:.1f}%)")

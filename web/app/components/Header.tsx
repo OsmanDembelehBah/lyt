@@ -46,7 +46,7 @@ export function Header({ statusBadge }: HeaderProps) {
     { href: "/", label: "Atlas", icon: <LayersIcon size={15} /> },
     { href: "/p/fna", label: "Place Passport", icon: <CompassIcon size={15} /> },
     { href: "/site", label: "Site Brain", icon: <ActivityIcon size={15} /> },
-    { href: "/agent", label: "Ask Layt", icon: <TerminalIcon size={15} />, isLive: true },
+    { href: "/agent", label: "Ask Lyt", icon: <TerminalIcon size={15} />, isLive: true },
   ];
 
   // Secondary Modules under "More"
@@ -74,8 +74,8 @@ export function Header({ statusBadge }: HeaderProps) {
 
       <header className="global-header">
         <div className="header-brand">
-          <Link href="/" className="logo-text" aria-label="Layt Home">
-            Layt<span className="logo-dot">·</span>
+          <Link href="/" className="logo-text" aria-label="Lyt Home">
+            Lyt<span className="logo-dot">·</span>
           </Link>
           <span className="brand-badge hide-mobile">West Africa</span>
         </div>

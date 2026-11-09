@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Layt · A Living Atlas of Light for Off-Grid West Africa",
+  title: "Lyt · A Living Atlas of Light for Off-Grid West Africa",
   description:
     "AI platform keeping off-grid and weak-grid communities powered and safe from climate shocks via regional intelligence and site brain forecasting.",
   manifest: "/manifest.json",

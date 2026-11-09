@@ -3,7 +3,7 @@
   "test_samples": 652,
   "target_conformal_coverage": 0.8,
   "models": {
-    "layt_probabilistic_ai": {
+    "lyt_probabilistic_ai": {
       "pinball_loss": 0.0098,
       "pinball_p10": 0.0062,
       "pinball_p50": 0.0153,

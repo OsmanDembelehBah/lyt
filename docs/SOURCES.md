@@ -1,6 +1,6 @@
-# Layt: Sources & Assumptions Registry
+# Lyt: Sources & Assumptions Registry
 
-Every statistic, climate threshold, physics constant, and policy target used across the Layt codebase and user interface must be listed here with its official source citation or an explicit assumption label.
+Every statistic, climate threshold, physics constant, and policy target used across the Lyt codebase and user interface must be listed here with its official source citation or an explicit assumption label.
 
 ---
 

@@ -171,7 +171,7 @@ export default function TrustCentrePage() {
           Trust Scoreboard & AI Verification Centre
         </h1>
         <p className="dim max-w-3xl text-sm leading-relaxed mt-2 text-[var(--sand-dim)]">
-          Every morning, Layt compares yesterday&apos;s weather forecast against NASA GPM IMERG spaceborne radar observations for all West African hubs. Every error is published openly; no model claims are made without measured empirical skill.
+          Every morning, Lyt compares yesterday&apos;s weather forecast against NASA GPM IMERG spaceborne radar observations for all West African hubs. Every error is published openly; no model claims are made without measured empirical skill.
         </p>
       </section>
 
@@ -292,7 +292,7 @@ export default function TrustCentrePage() {
             </thead>
             <tbody className="divide-y divide-[var(--earth-border-subtle)] font-mono">
               <tr className="bg-[var(--lagoon)]/40 font-bold">
-                <td className="p-3 text-[var(--sand-bright)]">Layt PyTorch Bias-Corrected (Conformal)</td>
+                <td className="p-3 text-[var(--sand-bright)]">Lyt PyTorch Bias-Corrected (Conformal)</td>
                 <td className="p-3 text-[var(--mist)]">2.14 mm</td>
                 <td className="p-3 text-[var(--mist)]">0.0091</td>
                 <td className="p-3 text-[var(--sun)]">83.9% (Target 80.0%)</td>
@@ -322,7 +322,7 @@ export default function TrustCentrePage() {
         <div className="card-header-row mb-3 flex items-center justify-between pb-3 border-b border-[var(--earth-border)]">
           <h2 className="trust-section-title flex items-center gap-2 text-base font-bold text-[var(--sand-bright)]">
             <BrainIcon size={18} className="text-[var(--sun)]" />
-            <span>AI Model Card: Layt Mini-Grid Forecaster v1.0</span>
+            <span>AI Model Card: Lyt Mini-Grid Forecaster v1.0</span>
           </h2>
           <span className="badge-verified flex items-center gap-1 text-xs font-mono text-[var(--mist)]">
             <CheckCircleIcon size={12} />
@@ -370,7 +370,7 @@ export default function TrustCentrePage() {
           <span>Human-in-the-Loop Governance & How to Dispute an Observation</span>
         </h2>
         <p className="text-xs text-[var(--sand-dim)] leading-relaxed mb-4">
-          Layt gives advisories, not official warnings, insurance advice, or financial advice. The system recommends; the human operator decides.
+          Lyt gives advisories, not official warnings, insurance advice, or financial advice. The system recommends; the human operator decides.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
           <div className="p-4 rounded-xl bg-[var(--lagoon)] border border-[var(--earth-border)]">

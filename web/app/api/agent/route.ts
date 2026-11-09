@@ -66,13 +66,13 @@ export async function POST(req: NextRequest) {
       try {
         const geminiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${effectiveApiKey}`;
 
-        const systemInstruction = `You are Ask Layt, a strictly grounded AI climate and mini-grid evidence assistant for West Africa.
+        const systemInstruction = `You are Ask Lyt, a strictly grounded AI climate and mini-grid evidence assistant for West Africa.
 GROUNDING DISCIPLINE (Section 7.G):
 1. You may ONLY state facts and numbers provided in the Verified Tool Context below.
 2. NEVER invent statistics, accuracy percentages, translations, or partners.
 3. Every number you state must cite its source, observation time, and proof badge ([Satellite-verified], [Station-verified], [Community-reported], or [Modeled]).
 4. If the data is absent or outside scope, say "I don't know" and explain what to check in the Place Passport or Atlas.
-5. NEVER provide financial advice, medical diagnosis, or official civil defense warnings. Layt gives advisories only.
+5. NEVER provide financial advice, medical diagnosis, or official civil defense warnings. Lyt gives advisories only.
 
 VERIFIED TOOL CONTEXT:
 ${JSON.stringify(toolResult, null, 2)}`;
@@ -124,7 +124,7 @@ ${JSON.stringify(toolResult, null, 2)}`;
     return NextResponse.json({
       success: true,
       isLiveGemini: false,
-      modelUsed: "Layt-Grounded-Evidence-v1.0",
+      modelUsed: "Lyt-Grounded-Evidence-v1.0",
       response: toolResult.groundedAnswer,
       codeSnippet: (toolResult as any).codeSnippet,
       toolExecuted: toolResult.toolName,
@@ -133,11 +133,11 @@ ${JSON.stringify(toolResult, null, 2)}`;
       thoughtTrace: toolResult.thoughtTrace,
       metrics: {
         latencyMs,
-        model: "Layt Deterministic Grounding Engine",
+        model: "Lyt Deterministic Grounding Engine",
       },
     });
   } catch (error: any) {
-    console.error("Ask Layt API error:", error);
+    console.error("Ask Lyt API error:", error);
     return NextResponse.json({ error: "Internal server error", details: error.message }, { status: 500 });
   }
 }
@@ -174,7 +174,7 @@ function executeInternalTools(prompt: string, context?: AgentRequestBody["contex
       directive: {
         type: "warning" as const,
         title: "OUT OF SCOPE / ADVISORY BOUNDARY",
-        text: "Layt provides verified climate evidence and mini-grid dispatch advisories only. No financial, medical, or ungrounded general advice.",
+        text: "Lyt provides verified climate evidence and mini-grid dispatch advisories only. No financial, medical, or ungrounded general advice.",
       },
       thoughtTrace: [
         "Analyzed query intent against platform safety guidelines.",
@@ -183,11 +183,11 @@ function executeInternalTools(prompt: string, context?: AgentRequestBody["contex
       ],
       groundedAnswer: `**I don't know and cannot advise on this.**
 
-Layt is strictly grounded in West African clean energy mini-grid operations, verified Place Passports, and satellite meteorological observations. 
+Lyt is strictly grounded in West African clean energy mini-grid operations, verified Place Passports, and satellite meteorological observations. 
 
-- **Financial / Investment Advice:** Layt does not sell insurance, make payouts, or give financial advice.
+- **Financial / Investment Advice:** Lyt does not sell insurance, make payouts, or give financial advice.
 - **Medical Guidance:** Rural clinic power dispatch prioritizes vaccine refrigeration, but does not provide clinical diagnoses.
-- **Geographic Coverage:** Layt currently monitors 25 verified hubs across 15 West African nations. Please check the Place Passport or regional Atlas for verified evidence.`,
+- **Geographic Coverage:** Lyt currently monitors 25 verified hubs across 15 West African nations. Please check the Place Passport or regional Atlas for verified evidence.`,
     };
   }
 
@@ -207,7 +207,7 @@ Layt is strictly grounded in West African clean energy mini-grid operations, ver
         metric: "Hard Reserve Constraint: 3 hours critical clinic load",
       },
       {
-        source: "Layt Convex MPC Decision Layer",
+        source: "Lyt Convex MPC Decision Layer",
         observationTime: "Real-time Optimizer (HiGHS)",
         proofBadge: "Modeled",
         metric: "SoC(t) >= 18.8% constraint satisfied across 24h",
@@ -230,7 +230,7 @@ Layt is strictly grounded in West African clean energy mini-grid operations, ver
       ],
       groundedAnswer: `### Power Tomorrow Forecast for ${hub.name} (${hub.country})
 
-Based on Layt's verified numerical forecast and convex Model Predictive Control dispatch:
+Based on Lyt's verified numerical forecast and convex Model Predictive Control dispatch:
 
 1. **Power Status:** **GOOD / OPERATIONAL**
    - **Expected Solar Yield:** \`${hub.normalYield} kWh/kWp\` ([Modeled] · Open-Meteo NWP · 2026-11-07 06:00 UTC).
@@ -309,7 +309,7 @@ ${
         metric: `PM10 Dust Concentration: ${dustVal} µg/m³`,
       },
       {
-        source: "Layt Residual Anomaly Tracker (physics.py)",
+        source: "Lyt Residual Anomaly Tracker (physics.py)",
         observationTime: "Real-time Telemetry Baseline",
         proofBadge: "Station-verified",
         metric: `Soiling PR Attenuation: ${isSahel ? "14.2%" : "3.1%"}`,
@@ -344,7 +344,7 @@ ${
   // Default: Place Passport Summary Tool
   const citations: Citation[] = [
     {
-      source: "Layt Place Passport Registry",
+      source: "Lyt Place Passport Registry",
       observationTime: "2026-11-07 06:00 UTC",
       proofBadge: "Satellite-verified",
       metric: `Place: ${hub.name}, ${hub.country} (${hub.lat}°N, ${hub.lon}°W)`,

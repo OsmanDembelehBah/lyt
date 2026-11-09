@@ -1,4 +1,4 @@
-# Layt: AI for clean energy, efficiency and climate risk across West Africa
+# Lyt: AI for clean energy, efficiency and climate risk across West Africa
 
 **Two layers, one product**
 1. **Atlas (regional, `/`)**: live weather + Copernicus dust forecasts for 25 hubs in 14 countries -> solar yield, flood-rain, heat and dust risk -> plain-language actions. Runs in the browser, no backend needed.
@@ -22,7 +22,7 @@ Open-Meteo (real NWP, 15d history + 2d forecast) --> API --> PyTorch forecaster 
 ## Run
 ```
 cp .env.example .env            # set real secrets
-docker run --rm -v $PWD/mosquitto:/c eclipse-mosquitto:2 mosquitto_passwd -c -b /c/passwd layt <MQTT_PASS>
+docker run --rm -v $PWD/mosquitto:/c eclipse-mosquitto:2 mosquitto_passwd -c -b /c/passwd lyt <MQTT_PASS>
 docker compose up -d --build
 docker compose run --rm api python train.py --lat 8.48 --lon -13.23 --years 3 --out /models/global.pt   # then: docker compose restart api
 cd tools && pip install httpx && python simulate.py --key <DEMO_INGEST_KEY> --soiling 0.2             # live demo data, real weather
@@ -31,7 +31,7 @@ npm i && npm run dev
 ```
 ## Connect real hardware
 HTTP: `POST /v1/sites/<id>/ingest` with header `X-Ingest-Key` and `{"readings":[{"pv_kw":3.2,"load_kw":1.1,"soc":0.62}]}`.
-MQTT: publish to `layt/<id>/telemetry`: `{"key":"<ingest key>","pv_kw":3.2,"load_kw":1.1,"soc":0.62}`. Any inverter gateway or ESP32 works.
+MQTT: publish to `lyt/<id>/telemetry`: `{"key":"<ingest key>","pv_kw":3.2,"load_kw":1.1,"soc":0.62}`. Any inverter gateway or ESP32 works.
 
 ## What the AI does
 1. Forecasts PV and demand 24h ahead (p10/p50/p90) from history + *known future weather*, with split-conformal calibration so the 80% band is checked against held-out data.

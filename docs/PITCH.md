@@ -1,7 +1,7 @@
-# Layt: Climate-Resilient Mini-Grid Intelligence for Off-Grid Communities
+# Lyt: Climate-Resilient Mini-Grid Intelligence for Off-Grid Communities
 
 ## Executive Summary
-Layt ("Light") is an AI-powered climate-risk atlas and autonomous mini-grid brain engineered specifically for off-grid and weak-grid energy systems. Combining regional numerical weather prediction (NWP) with an edge-deployable probabilistic neural forecaster, Layt prevents clinic blackouts, eliminates unnecessary diesel generator burn, detects Harmattan dust panel soiling, and communicates generation windows to rural communities in their local languages.
+Lyt ("Light") is an AI-powered climate-risk atlas and autonomous mini-grid brain engineered specifically for off-grid and weak-grid energy systems. Combining regional numerical weather prediction (NWP) with an edge-deployable probabilistic neural forecaster, Lyt prevents clinic blackouts, eliminates unnecessary diesel generator burn, detects Harmattan dust panel soiling, and communicates generation windows to rural communities in their local languages.
 
 ---
 
@@ -42,7 +42,7 @@ flowchart LR
 
 ## 3. Direct Alignment with Regional Energy Policies
 
-| Policy / Target | Jurisdictional Body | How Layt Supports It | Verified Metric in Platform |
+| Policy / Target | Jurisdictional Body | How Lyt Supports It | Verified Metric in Platform |
 | :--- | :--- | :--- | :--- |
 | **ECOWAS Renewable Energy Policy (EREP)** | ECOWAS / ECREEE | Mandates 48% renewable electricity mix and 25% rural population served by mini-grids by 2030. | **Mini-Grid Siting Planner (`/planner`)**: Multi-criteria siting ranking solar GHI, unserved population, and transmission isolation. |
 | **ECOWAS Energy Efficiency Policy (EEEP)** | ECOWAS / ECREEE | Targets reduction of regional distribution and generation losses below 10% (currently estimated at 35–40%). | **Anomaly Detection (`anomaly.py`)**: Quantifies exact kWh soiling losses against clear-sky baseline; notifies operators for targeted washing. |
@@ -52,8 +52,8 @@ flowchart LR
 
 ---
 
-## 4. Competitive Moat: Why Layt Wins
-1. **Mathematical Safety Guarantees**: Unlike black-box ML or heuristic timers, Layt's convex MPC enforces a mathematically provable hard constraint reserving $\ge 3$ hours of critical load for rural clinics at all times.
+## 4. Competitive Moat: Why Lyt Wins
+1. **Mathematical Safety Guarantees**: Unlike black-box ML or heuristic timers, Lyt's convex MPC enforces a mathematically provable hard constraint reserving $\ge 3$ hours of critical load for rural clinics at all times.
 2. **Offline-First Edge Resilience**: The standalone Rust Edge Agent (`edge/`) buffers telemetry in SQLite during cellular outages and runs local physics dispatch, surviving multi-day network disconnects with zero telemetry loss.
 3. **Low-Bandwidth & Inclusive Access**: Full functionality on 2G feature phones via USSD (`*384*529#`) and SMS in English, French, Krio, and Hausa, complemented by a sunlight-readable UI for low-cost Android phones in rural noon glare.
 4. **Transparent Governance**: Every calculation has an expandable mathematical assumptions drawer, and every operator override is recorded in an exportable audit log.

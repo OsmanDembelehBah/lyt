@@ -250,19 +250,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "layt-edge"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "rumqttc",
- "rusqlite",
- "serde",
- "serde_json",
- "tempfile",
- "tokio",
-]
-
-[[package]]
 name = "libc"
 version = "0.2.191"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -299,6 +286,19 @@ name = "log"
 version = "0.4.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c"
+
+[[package]]
+name = "lyt-edge"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "rumqttc",
+ "rusqlite",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "tokio",
+]
 
 [[package]]
 name = "memchr"

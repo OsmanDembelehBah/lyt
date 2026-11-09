@@ -1,16 +1,16 @@
 # MEMORANDUM OF UNDERSTANDING / LETTER OF INTENT (LOI)
 
 **BETWEEN:**
-1. **Layt Energy Technologies Ltd.** ("Technology Partner")
+1. **Lyt Energy Technologies Ltd.** ("Technology Partner")
 2. **[Mini-Grid Utility / Electrification Agency Name]** ("Project Partner"), operating rural mini-grids in [Country / Jurisdiction].
 
 **DATE:** [Date]  
-**SUBJECT:** Pilot Deployment of Layt AI Mini-Grid Climate-Resilience & Edge Dispatch Platform
+**SUBJECT:** Pilot Deployment of Lyt AI Mini-Grid Climate-Resilience & Edge Dispatch Platform
 
 ---
 
 ### 1. Purpose & Scope
-This Letter of Intent records the mutual intent of the Parties to conduct a field validation pilot of the **Layt Platform** across [Number, e.g. 3 to 5] operational mini-grid sites in [Region / District, e.g. Northern Province, Sierra Leone / Kédougou, Senegal].
+This Letter of Intent records the mutual intent of the Parties to conduct a field validation pilot of the **Lyt Platform** across [Number, e.g. 3 to 5] operational mini-grid sites in [Region / District, e.g. Northern Province, Sierra Leone / Kédougou, Senegal].
 
 The objectives of the Pilot are:
 1. Eliminate unnecessary diesel backup generator run-time through probabilistic solar recharge forecasting.
@@ -20,7 +20,7 @@ The objectives of the Pilot are:
 
 ---
 
-### 2. Responsibilities of Technology Partner (Layt)
+### 2. Responsibilities of Technology Partner (Lyt)
 - Provide pre-configured Raspberry Pi Edge Gateways equipped with the offline-first Rust Edge Agent.
 - Grant secure access to the Regional Atlas, Operator Console, and Verified Impact Ledger.
 - Configure site-specific digital twins, inverter telemetry mappings, and local language SMS/USSD templates.
@@ -50,7 +50,7 @@ This Letter of Intent reflects the sincere intentions of the Parties. Except for
 **SIGNED FOR AND ON BEHALF OF:**
 
 _______________________________________  
-**Layt Energy Technologies Ltd.**  
+**Lyt Energy Technologies Ltd.**  
 Name:  
 Title:  
 

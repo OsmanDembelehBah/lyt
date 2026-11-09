@@ -1,7 +1,7 @@
-# Model Card: Layt Probabilistic Mini-Grid Forecaster v1.0
+# Model Card: Lyt Probabilistic Mini-Grid Forecaster v1.0
 
 ## 1. Model Details
-- **Model Name**: Layt Probabilistic Mini-Grid Forecaster (v1.0)
+- **Model Name**: Lyt Probabilistic Mini-Grid Forecaster (v1.0)
 - **Model Type**: Deep Neural Network for multi-horizon probabilistic time-series forecasting.
 - **Architecture**:
   - **Encoder**: Recurrent Neural Network (PyTorch `GRU`, 7 input features, 64 hidden units).
@@ -53,7 +53,7 @@ To prevent temporal data leakage, all evaluations use strict **chronological spl
 
 | Model / Baseline | Pinball Loss ($p_{10}/p_{50}/p_{90}$) | 80% Empirical Coverage | Skill Score vs Persistence | Skill Score vs Physics |
 | :--- | :--- | :--- | :--- | :--- |
-| **Layt Probabilistic AI** | **0.0107** | **80.7% (Target 80.0%)** | **+68.4%** | **+51.2%** |
+| **Lyt Probabilistic AI** | **0.0107** | **80.7% (Target 80.0%)** | **+68.4%** | **+51.2%** |
 | Pure Physics Baseline | 0.0219 | 74.2% | +35.2% | Baseline (0.0%) |
 | Persistence Baseline | 0.0338 | 61.5% | Baseline (0.0%) | -54.3% |
 

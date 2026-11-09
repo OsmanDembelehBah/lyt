@@ -18,7 +18,7 @@ import {
 
 interface ChatMessage {
   id: string;
-  sender: "user" | "layt";
+  sender: "user" | "lyt";
   text: string;
   timestamp: string;
   directive?: {
@@ -33,25 +33,25 @@ interface ChatMessage {
 
 const QUICK_PROMPTS = [
   {
-    cmd: "layt status",
+    cmd: "lyt status",
     label: "Solar & Rain Outlook",
     prompt: "Give me an executive briefing on solar yield, convective rainfall, and dust risk across West Africa mini-grids today.",
     icon: <SunIcon size={13} />,
   },
   {
-    cmd: "layt clinic --check",
+    cmd: "lyt clinic --check",
     label: "Clinic Cold Chain",
     prompt: "Verify if the 3-hour emergency healthcare vaccine reserve is mathematically protected under today's p10 solar forecast.",
     icon: <ShieldCheckIcon size={13} />,
   },
   {
-    cmd: "layt soiling --loss",
+    cmd: "lyt soiling --loss",
     label: "Dust Soiling Check",
     prompt: "Assess Harmattan dust accumulation and tell me whether mini-grid panel washing is economically warranted today.",
     icon: <ZapIcon size={13} />,
   },
   {
-    cmd: "layt mpc --dispatch",
+    cmd: "lyt mpc --dispatch",
     label: "Run MPC Dispatch",
     prompt: "Generate an adaptive 24-hour battery dispatch plan prioritizing clinic critical load and routing daytime surplus to agro-processing.",
     icon: <ActivityIcon size={13} />,
@@ -69,8 +69,8 @@ export function InBuiltAssistant() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome-1",
-      sender: "layt",
-      text: "Layt AI Edge Copilot initialized. I provide live climate risk intelligence, convex MPC battery dispatch, and clinic cold-chain verification across West Africa.",
+      sender: "lyt",
+      text: "Lyt AI Edge Copilot initialized. I provide live climate risk intelligence, convex MPC battery dispatch, and clinic cold-chain verification across West Africa.",
       timestamp: "Ready",
       directive: {
         type: "info",
@@ -146,7 +146,7 @@ export function InBuiltAssistant() {
 
       const botMsg: ChatMessage = {
         id: "b-" + Date.now(),
-        sender: "layt",
+        sender: "lyt",
         text: data.response || "Analysis complete.",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
         codeSnippet: data.codeSnippet,
@@ -161,7 +161,7 @@ export function InBuiltAssistant() {
         ...prev,
         {
           id: "err-" + Date.now(),
-          sender: "layt",
+          sender: "lyt",
           text: "Local inference fallback: Inverter and telemetry buffer operational. Solar yield is projected at nominal levels with 3-hour healthcare reserve verified.",
           timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
           directive: {
@@ -190,13 +190,13 @@ export function InBuiltAssistant() {
           type="button"
           onClick={() => setIsOpen(true)}
           className="inbuilt-bot-fab"
-          aria-label="Open Layt AI Copilot"
+          aria-label="Open Lyt AI Copilot"
         >
           <span className="inbuilt-bot-fab-inner flex items-center gap-2">
             <span className="bot-pulse-ring" />
             <TerminalIcon size={16} className="text-[#F59E0B]" />
             <span className="bot-fab-text font-mono text-xs font-bold tracking-wide">
-              layt@copilot<span className="terminal-cursor">_</span>
+              lyt@copilot<span className="terminal-cursor">_</span>
             </span>
           </span>
         </button>
@@ -204,7 +204,7 @@ export function InBuiltAssistant() {
 
       {/* Floating Chatbot Modal / Drawer */}
       {isOpen && (
-        <div className="inbuilt-bot-window" role="dialog" aria-label="Layt In-Built Terminal Copilot">
+        <div className="inbuilt-bot-window" role="dialog" aria-label="Lyt In-Built Terminal Copilot">
           {/* Terminal Window Chrome / Header */}
           <div className="inbuilt-bot-header">
             <div className="bot-header-left">
@@ -213,7 +213,7 @@ export function InBuiltAssistant() {
               <span className="term-dot dot-green" />
               <div className="flex items-center gap-1.5 ml-2">
                 <BrainIcon size={14} className="text-[#F59E0B]" />
-                <span className="font-mono text-xs font-bold text-[#FFFFFF]">layt@edge:~# copilot</span>
+                <span className="font-mono text-xs font-bold text-[#FFFFFF]">lyt@edge:~# copilot</span>
               </div>
             </div>
 
@@ -264,11 +264,11 @@ export function InBuiltAssistant() {
                   }`}
                 >
                   {/* Sender Header for Bot */}
-                  {msg.sender === "layt" && (
+                  {msg.sender === "lyt" && (
                     <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-[#283347]/60">
                       <span className="font-mono text-[11px] font-bold text-[#F59E0B] flex items-center gap-1">
                         <TerminalIcon size={12} />
-                        LAYT·COPILOT
+                        LYT·COPILOT
                       </span>
                       {msg.isLiveGemini && (
                         <span className="text-[10px] text-[#38BDF8] font-mono">Gemini Live</span>

@@ -21,10 +21,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check saved preferences
     try {
-      const savedLoc = localStorage.getItem("layt_locale") as Locale;
+      const savedLoc = localStorage.getItem("lyt_locale") as Locale;
       if (savedLoc && LOCALES[savedLoc]) setLocaleState(savedLoc);
       
-      const savedLowData = localStorage.getItem("layt_low_data");
+      const savedLowData = localStorage.getItem("lyt_low_data");
       if (savedLowData !== null) {
         setLowDataState(savedLowData === "true");
       } else {
@@ -42,7 +42,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const setLocale = (l: Locale) => {
     setLocaleState(l);
     try {
-      localStorage.setItem("layt_locale", l);
+      localStorage.setItem("lyt_locale", l);
     } catch {
       // Ignore
     }
@@ -51,7 +51,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const setLowData = (v: boolean) => {
     setLowDataState(v);
     try {
-      localStorage.setItem("layt_low_data", String(v));
+      localStorage.setItem("lyt_low_data", String(v));
     } catch {
       // Ignore
     }
