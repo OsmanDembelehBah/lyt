@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
+import { DemoModeBar } from "./components/DemoModeBar";
 import { MapAtlas } from "./components/MapAtlas";
 import { TimeScrubber } from "./components/TimeScrubber";
 import { DataBadge } from "./components/DataBadge";
@@ -94,6 +95,7 @@ export default function AtlasPage() {
   return (
     <main className="app-main">
       <Header statusBadge={statusBadge} />
+      <DemoModeBar />
 
       {error && !data && (
         <div className="error-banner" role="alert">
