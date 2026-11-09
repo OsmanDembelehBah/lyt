@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Header } from "../components/Header";
+import { DataBadge } from "../components/DataBadge";
 import { useApp } from "../context";
 import {
   SunIcon,
@@ -369,8 +370,9 @@ export default function PlannerPage() {
           <div className="active-site-preview mt-4 p-4 rounded-xl bg-[#141824] border border-[#283347]">
             <div className="flex justify-between items-center mb-2 flex-wrap gap-2">
               <b className="text-[#FFFFFF] text-sm">{activeSite.name} ({activeSite.country})</b>
-              <span className="score-pill">
+              <span className="score-pill flex items-center gap-1.5">
                 <b>{activeSite.compositeScore}</b> / 100 Siting Score
+                <DataBadge status="MODELED" size="xs" />
               </span>
             </div>
             <p className="text-xs dim mb-3">{activeSite.policyTarget}</p>

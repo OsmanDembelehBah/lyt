@@ -7,6 +7,7 @@ import type { FeatureCollection, Geometry } from "geojson";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { HubData, Layer, LAYERS, raw, val, explainHubDay } from "../atlas";
+import { DataBadge } from "./DataBadge";
 import { useApp } from "../context";
 import {
   SearchIcon,
@@ -741,11 +742,14 @@ export function MapAtlas({
                             {renderLayerIcon(lMeta.icon, 14)}
                             {lMeta.label}
                           </span>
-                          <b className="text-[var(--sand-bright)] font-mono">
-                            {lKey === "dust" && !activeHub.dustOk
-                              ? "N/A"
-                              : `${r.toFixed(lKey === "sun" ? 1 : 0)} ${lMeta.unit}`}
-                          </b>
+                          <span className="flex items-center gap-1.5">
+                            <b className="text-[var(--sand-bright)] font-mono">
+                              {lKey === "dust" && !activeHub.dustOk
+                                ? "N/A"
+                                : `${r.toFixed(lKey === "sun" ? 1 : 0)} ${lMeta.unit}`}
+                            </b>
+                            <DataBadge status={lKey === "satellite" ? "LIVE" : "MODELED"} size="xs" />
+                          </span>
                         </div>
                         <div className="metric-track h-2 rounded-full bg-[var(--lagoon)] overflow-hidden border border-[var(--earth-border)]">
                           <div

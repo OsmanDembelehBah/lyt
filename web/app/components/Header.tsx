@@ -78,6 +78,9 @@ export function Header({ statusBadge }: HeaderProps) {
             Lyt<span className="logo-dot">·</span>
           </Link>
           <span className="brand-badge hide-mobile">West Africa</span>
+          <span className="advisory-badge font-mono text-[10px] tracking-wide px-2 py-0.5 rounded border border-[var(--earth-border)] text-[var(--sand-dim)] bg-[var(--lagoon)] ml-2 hide-mobile">
+            Advisory from Lyt, not an official warning.
+          </span>
         </div>
 
         {/* Desktop 4-Item Primary Nav + More Popover */}

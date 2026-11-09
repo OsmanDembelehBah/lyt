@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "../components/Header";
+import { DataBadge } from "../components/DataBadge";
 import { useApp } from "../context";
 import {
   LeafIcon,
@@ -263,9 +264,10 @@ export default function ImpactLedgerPage() {
                 )}
               </div>
 
-              <div className="impact-number-row">
+              <div className="impact-number-row flex items-baseline gap-2 flex-wrap">
                 <span className="impact-big-number">{m.value}</span>
                 <span className="impact-unit">{m.unit}</span>
+                <DataBadge status={m.isAssumed ? "MODELED" : "LIVE"} size="xs" />
               </div>
 
               <h3 className="impact-label">{m.label}</h3>

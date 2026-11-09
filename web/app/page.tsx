@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { MapAtlas } from "./components/MapAtlas";
 import { TimeScrubber } from "./components/TimeScrubber";
+import { DataBadge } from "./components/DataBadge";
 import { HubData, Layer, LAYERS, loadAtlas, summary, getLayerHeadline } from "./atlas";
 import { useApp } from "./context";
 import {
@@ -123,10 +124,11 @@ export default function AtlasPage() {
               1. What is happening? 2. Why does it matter? 3. What should I do? */}
           <section className="headline-section mb-6">
             <div className="flex items-center justify-between flex-wrap gap-3 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className={`pill-badge badge-${layerHeadline.badgeTone} font-mono text-xs font-bold`}>
                   {layerHeadline.badge}
                 </span>
+                <DataBadge status={layer === "satellite" ? "LIVE" : "MODELED"} size="xs" />
                 <span className="text-xs text-[var(--sand-dim)] font-mono">
                   {layer === "satellite"
                     ? "NASA GPM IMERG 10km Satellite Observation"

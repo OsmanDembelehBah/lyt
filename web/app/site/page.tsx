@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import Link from "next/link";
 import { Header } from "../components/Header";
+import { DataBadge } from "../components/DataBadge";
 import {
   Act,
   Hr,
@@ -224,6 +225,7 @@ export default function SiteBrainPage() {
   const hours = activeState.hours;
   const currentHr = hours[selectedHour] || hours[0];
   const ageSeconds = Math.max(0, Math.round((nowSec - lastSeenTime) / 1000));
+  const isLive = connectionStatus === "live";
   const currentSoc =
     selectedHour === 0 && liveReading ? liveReading.soc : currentHr.soc[1];
   const cautiousSoc = currentHr.soc[0];
@@ -338,18 +340,23 @@ export default function SiteBrainPage() {
           <div className="battery-specs">
             <div className="spec-item">
               <span className="spec-label">Capacity</span>
-              <b className="spec-val">
-                {activeState.nominal_cap_kwh || 40} kWh
+              <b className="spec-val flex items-center gap-1">
+                <span>{activeState.nominal_cap_kwh || 40} kWh</span>
+                <DataBadge status="MODELED" size="xs" />
               </b>
             </div>
             <div className="spec-item">
               <span className="spec-label">Critical Reserve</span>
-              <b className="spec-val accent-storm">7.5 kWh (~3h)</b>
+              <b className="spec-val accent-storm flex items-center gap-1">
+                <span>7.5 kWh (~3h)</span>
+                <DataBadge status="MODELED" size="xs" />
+              </b>
             </div>
             <div className="spec-item">
               <span className="spec-label">Conformal Cov</span>
-              <b className="spec-val accent-mist">
-                {Math.round((activeState.confidence || 0.8) * 100)}%
+              <b className="spec-val accent-mist flex items-center gap-1">
+                <span>{Math.round((activeState.confidence || 0.8) * 100)}%</span>
+                <DataBadge status="MODELED" size="xs" />
               </b>
             </div>
           </div>
@@ -436,27 +443,39 @@ export default function SiteBrainPage() {
               Solid amber = p50 median sun · Shaded envelope = p10/p90 confidence band · Dashed = village demand · Terminal emerald = battery SoC
             </p>
           </div>
-          <div className="timeline-live-stat">
+          <div className="timeline-live-stat flex-wrap gap-2">
             <span className="stat-chip time-chip">
               <span className="chip-label">HOUR</span>
               <b>{String(currentHr.hour).padStart(2, "0")}:00</b>
             </span>
             <span className="stat-chip sun-chip">
-              <span className="chip-label">SOLAR (p50)</span>
+              <span className="chip-label flex items-center justify-between gap-1">
+                <span>SOLAR (p50)</span>
+                <DataBadge status={isLive ? "LIVE" : "SIMULATED"} size="xs" />
+              </span>
               <b>{currentPv.toFixed(1)} kW</b>
               <small className="dim">[{currentHr.pv[0].toFixed(1)} – {currentHr.pv[2].toFixed(1)}]</small>
             </span>
             <span className="stat-chip load-chip">
-              <span className="chip-label">DEMAND</span>
+              <span className="chip-label flex items-center justify-between gap-1">
+                <span>DEMAND</span>
+                <DataBadge status={isLive ? "LIVE" : "SIMULATED"} size="xs" />
+              </span>
               <b>{currentLoad.toFixed(1)} kW</b>
             </span>
             <span className="stat-chip soc-chip">
-              <span className="chip-label">BATTERY</span>
+              <span className="chip-label flex items-center justify-between gap-1">
+                <span>BATTERY</span>
+                <DataBadge status={isLive ? "LIVE" : "SIMULATED"} size="xs" />
+              </span>
               <b>{Math.round(currentSoc * 100)}%</b>
               <small className="dim">p10: {Math.round(cautiousSoc * 100)}%</small>
             </span>
             <span className={`stat-chip balance-chip ${currentPv >= currentLoad ? "surplus" : "deficit"}`}>
-              <span className="chip-label">NET BALANCE</span>
+              <span className="chip-label flex items-center justify-between gap-1">
+                <span>NET BALANCE</span>
+                <DataBadge status="MODELED" size="xs" />
+              </span>
               <b>{currentPv >= currentLoad ? `+${(currentPv - currentLoad).toFixed(1)} kW` : `-${(currentLoad - currentPv).toFixed(1)} kW`}</b>
             </span>
           </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "../components/Header";
+import { DataBadge } from "../components/DataBadge";
 import { useApp } from "../context";
 import {
   DownloadIcon,
@@ -135,8 +136,9 @@ export default function ConsolePage() {
               <AlertTriangleIcon size={16} className="text-[#F59E0B]" />
               <span>Harmattan Soiling Degradation Trend (7 Days)</span>
             </span>
-            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#3B2014] text-[#F97316] font-mono font-semibold border border-[#F97316]/30">
-              12.4% Generation Loss
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#3B2014] text-[#F97316] font-mono font-semibold border border-[#F97316]/30 flex items-center gap-1.5">
+              <span>12.4% Generation Loss</span>
+              <DataBadge status="LIVE" size="xs" />
             </span>
           </div>
           <p className="text-xs dim mb-4">
@@ -268,9 +270,15 @@ export default function ConsolePage() {
               Cycle 4,000
             </text>
           </svg>
-          <div className="flex justify-between items-center text-xs mt-3 pt-2.5 border-t border-[#283347]/60">
-            <span className="dim">Cell Impedance: 14.2 mΩ (Nominal)</span>
-            <span className="text-[#10B981] font-medium">+2.4 yrs battery life added</span>
+          <div className="flex justify-between items-center text-xs mt-3 pt-2.5 border-t border-[#283347]/60 flex-wrap gap-2">
+            <span className="dim flex items-center gap-1.5">
+              <span>Cell Impedance: 14.2 mΩ (Nominal)</span>
+              <DataBadge status="LIVE" size="xs" />
+            </span>
+            <span className="text-[#10B981] font-medium flex items-center gap-1.5">
+              <span>+2.4 yrs battery life added</span>
+              <DataBadge status="MODELED" size="xs" />
+            </span>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Header } from "../../components/Header";
+import { DataBadge } from "../../components/DataBadge";
 import { HUBS, Hub, HubData, Day, loadAtlas, LAYERS, Layer } from "../../atlas";
 import {
   SunIcon,
@@ -302,7 +303,10 @@ export default function PlacePassportPage() {
             <div>
               <div className="text-[10px] font-mono uppercase tracking-wider text-[var(--sand-dim)]">Energy Resilience</div>
               <div className="text-sm font-bold text-[var(--sand-bright)]">{resilienceGrade.verdict}</div>
-              <div className="text-xs font-mono text-[var(--sun)]">Score {resilienceGrade.score} / 100</div>
+              <div className="text-xs font-mono text-[var(--sun)] flex items-center gap-1.5 mt-0.5">
+                <span>Score {resilienceGrade.score} / 100</span>
+                <DataBadge status="MODELED" size="xs" />
+              </div>
             </div>
           </div>
         </div>
@@ -422,12 +426,13 @@ export default function PlacePassportPage() {
                 </span>
                 <span className="text-[11px] font-mono text-[var(--sand-bright)]">Window: 14:00 – 17:00 UTC</span>
               </div>
-              <div className="storm-clock-display flex items-baseline gap-2 mb-2">
+              <div className="storm-clock-display flex items-baseline gap-2 mb-2 flex-wrap">
                 <span className="text-3xl font-extrabold font-mono text-[var(--sand-bright)]">
                   {todayForecast && todayForecast.rain > 20 ? "T-03:45" : "No Storm Imminent"}
                 </span>
-                <span className="text-xs text-[var(--rain)] font-semibold">
-                  {todayForecast && todayForecast.rain > 20 ? "78% Probability" : "Clear Radar"}
+                <span className="text-xs text-[var(--rain)] font-semibold flex items-center gap-1">
+                  <span>{todayForecast && todayForecast.rain > 20 ? "78% Probability" : "Clear Radar"}</span>
+                  <DataBadge status="MODELED" size="xs" />
                 </span>
               </div>
               <p className="text-xs text-[var(--sand-dim)] leading-relaxed">
@@ -447,8 +452,12 @@ export default function PlacePassportPage() {
                   </span>
                   {renderProofBadge("satellite")}
                 </div>
-                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5">
-                  Observed (24h): <b>{todayForecast?.rain ? Math.round(todayForecast.rain * 0.7) : 0} mm</b> · Forecast (48h): <b>{todayForecast?.rain ? Math.round(todayForecast.rain) : 0} mm</b>
+                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5 flex items-center gap-1.5 flex-wrap">
+                  <span>Observed (24h): <b>{todayForecast?.rain ? Math.round(todayForecast.rain * 0.7) : 0} mm</b></span>
+                  <DataBadge status="LIVE" size="xs" />
+                  <span className="opacity-40">·</span>
+                  <span>Forecast (48h): <b>{todayForecast?.rain ? Math.round(todayForecast.rain) : 0} mm</b></span>
+                  <DataBadge status="MODELED" size="xs" />
                 </div>
                 <div className="action-tag text-[11px] text-[var(--sand)] bg-[var(--deep)] p-2 rounded-lg border border-[var(--earth-border)]">
                   <b>Action:</b> Top up battery storage before 14:00; clear inverter shelter drainage channels.
@@ -463,8 +472,12 @@ export default function PlacePassportPage() {
                   </span>
                   {renderProofBadge("station")}
                 </div>
-                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5">
-                  Ambient Max: <b>{todayForecast?.tmax ? Math.round(todayForecast.tmax) : 31}°C</b> · Cell Temp: <b>~{todayForecast?.tmax ? Math.round(todayForecast.tmax + 18) : 49}°C</b>
+                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5 flex items-center gap-1.5 flex-wrap">
+                  <span>Ambient Max: <b>{todayForecast?.tmax ? Math.round(todayForecast.tmax) : 31}°C</b></span>
+                  <DataBadge status="LIVE" size="xs" />
+                  <span className="opacity-40">·</span>
+                  <span>Cell Temp: <b>~{todayForecast?.tmax ? Math.round(todayForecast.tmax + 18) : 49}°C</b></span>
+                  <DataBadge status="MODELED" size="xs" />
                 </div>
                 <div className="action-tag text-[11px] text-[var(--sand)] bg-[var(--deep)] p-2 rounded-lg border border-[var(--earth-border)]">
                   <b>Action:</b> Prioritize clinic vaccine refrigerator cooling; inspect inverter bay ventilation fans.
@@ -479,8 +492,9 @@ export default function PlacePassportPage() {
                   </span>
                   {renderProofBadge("modeled")}
                 </div>
-                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5">
-                  Generation: <b>{todayForecast?.kwhkwp ? todayForecast.kwhkwp.toFixed(1) : "4.8"} kWh/kWp</b> (80% PR assumption)
+                <div className="text-xs text-[var(--sand-bright)] font-mono mb-1.5 flex items-center gap-1.5 flex-wrap">
+                  <span>Generation: <b>{todayForecast?.kwhkwp ? todayForecast.kwhkwp.toFixed(1) : "4.8"} kWh/kWp</b> (80% PR assumption)</span>
+                  <DataBadge status="MODELED" size="xs" />
                 </div>
                 <div className="action-tag text-[11px] text-[var(--sand)] bg-[var(--deep)] p-2 rounded-lg border border-[var(--earth-border)]">
                   <b>Action:</b> Run agricultural irrigation pumps during the 11:00–14:30 solar peak window.
@@ -513,7 +527,10 @@ export default function PlacePassportPage() {
             {/* Time Machine Decade Slider */}
             <div className="time-machine-controls mb-5 p-4 rounded-xl bg-[var(--lagoon)] border border-[var(--earth-border)]">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-bold text-[var(--sand-bright)]">Projection Horizon: {selectedDecade}</span>
+                <span className="text-xs font-bold text-[var(--sand-bright)] flex items-center gap-1.5">
+                  <span>Projection Horizon: {selectedDecade}</span>
+                  <DataBadge status="MODELED" size="xs" />
+                </span>
                 <span className="text-[10px] font-mono text-[var(--sun)]">Multi-Model Ensemble</span>
               </div>
               <div className="flex items-center gap-2 mb-3">
@@ -560,7 +577,10 @@ export default function PlacePassportPage() {
                   <CompassIcon size={14} />
                   Climate Twin Reveal
                 </span>
-                <span className="text-[11px] font-mono text-[var(--mist)]">{climateTwin.similarityScore}% Match</span>
+                <span className="text-[11px] font-mono text-[var(--mist)] flex items-center gap-1">
+                  <span>{climateTwin.similarityScore}% Match</span>
+                  <DataBadge status="MODELED" size="xs" />
+                </span>
               </div>
               <h3 className="text-sm font-bold text-[var(--sand-bright)] mb-2">
                 &ldquo;In {selectedDecade}, {currentHub.name} will feel like{" "}

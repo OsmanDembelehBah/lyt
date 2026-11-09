@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "../components/Header";
+import { DataBadge } from "../components/DataBadge";
 import { useApp } from "../context";
 import { HUBS } from "../atlas";
 import {
@@ -225,9 +226,24 @@ export default function TrustCentrePage() {
             <thead className="text-[11px] font-mono uppercase bg-[var(--lagoon)] text-[var(--sand-dim)] border-b border-[var(--earth-border)]">
               <tr>
                 <th className="p-3">Hub / Location</th>
-                <th className="p-3">Forecast (mm)</th>
-                <th className="p-3">NASA Observed (mm)</th>
-                <th className="p-3">Hit Rate</th>
+                <th className="p-3">
+                  <div className="flex items-center gap-1">
+                    <span>Forecast (mm)</span>
+                    <DataBadge status="MODELED" size="xs" />
+                  </div>
+                </th>
+                <th className="p-3">
+                  <div className="flex items-center gap-1">
+                    <span>NASA Observed (mm)</span>
+                    <DataBadge status="LIVE" size="xs" />
+                  </div>
+                </th>
+                <th className="p-3">
+                  <div className="flex items-center gap-1">
+                    <span>Hit Rate</span>
+                    <DataBadge status="MODELED" size="xs" />
+                  </div>
+                </th>
                 <th className="p-3">30d MAE</th>
                 <th className="p-3">Plain-Language Evidence</th>
                 <th className="p-3 text-right">Dossier</th>

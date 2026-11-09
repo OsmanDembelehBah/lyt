@@ -3,6 +3,7 @@
 import React from "react";
 import { Day } from "../atlas";
 import { SunIcon, ZapIcon } from "./Icons";
+import { DataBadge } from "./DataBadge";
 
 interface TimeScrubberProps {
   days: Day[];
@@ -52,10 +53,11 @@ export function TimeScrubber({
             >
               <span className="day-name">{getWeekday(d.date, idx)}</span>
               <span className="day-date">{getFullDate(d.date)}</span>
-              <span className="day-yield flex items-center gap-2">
+              <span className="day-yield flex items-center gap-1.5 flex-wrap">
                 <SunIcon size={14} className="text-[#F59E0B]" />
                 <b>{d.kwhkwp ? d.kwhkwp.toFixed(1) : "--"}</b>
                 <small className="dim">kWh</small>
+                <DataBadge status="LIVE" size="xs" />
               </span>
             </button>
           );
@@ -69,8 +71,9 @@ export function TimeScrubber({
             <SunIcon size={16} className="text-[#F59E0B]" />
             <span>Celestial Sun Arc & Dispatch Windows ({getWeekday(days[selectedDayIndex]?.date || "", selectedDayIndex)})</span>
           </span>
-          <span className="sun-arc-badge">
-            Zenith Yield: ~{peakYield.toFixed(1)} kWh/kWp
+          <span className="sun-arc-badge flex items-center gap-1.5">
+            <span>Zenith Yield: ~{peakYield.toFixed(1)} kWh/kWp</span>
+            <DataBadge status="MODELED" size="xs" />
           </span>
         </div>
 
